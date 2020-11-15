@@ -9,11 +9,11 @@ class User:
         self.height = float(height) if height else 0
         self.stride = float(stride) if stride else 0
 
-        if self.gender not in User.GENDER:
+        if self.gender and self.gender not in User.GENDER:
             raise ValueError("Invalid gender")
-        if self.height<=0:
+        if self.height and self.height<=0:
             raise ValueError("Invalid height")
-        if self.stride<=0:
+        if self.stride and self.stride<=0:
             raise ValueError("Invalid stride")
 
         self.stride = self.__calculate_stride()

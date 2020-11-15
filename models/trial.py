@@ -6,7 +6,7 @@ class Trial:
 
         if not self.name:
             raise ValueError("Invalid name")
-        if self.rate<=0:
+        if self.rate and self.rate<=0:
             raise ValueError("Invalid rate")
-        if self.steps<=0:
+        if self.steps and self.steps<=0:
             raise ValueError("Invalid steps")

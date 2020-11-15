@@ -8,6 +8,7 @@ class Pipeline:
         self.data = data
         self.user = user
         self.trial = trial
+        self.parser, self.processor, self.analyzer = [None]*3
         self.feed()
 
     def feed(self):

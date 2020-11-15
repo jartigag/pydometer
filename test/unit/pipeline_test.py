@@ -1,0 +1,36 @@
+#TODO: pytest or unittest?
+from .models.pipeline import Pipeline
+#FIXME: ModuleNotFoundError: No module named '__main__.models'; '__main__' is not a package
+
+def test_new_combined_data():
+    file_path = 'test/data/female-167-70_bagwalk1-100-10.txt'
+    #TODO: make User,Trial classes available from Pipeline
+    user = User()
+    trial = Trial('foobar1', 100)
+    pipeline = Pipeline(open(file_path).read(), user, trial)
+    #TODO:
+    # assert user==pipeline.user
+    # assert trial==pipeline.trial
+    # assert pipeline.parser
+    # assert pipeline.processor
+    # assert pipeline.analyzer
+    #
+    # assert pipeline.analyzer.steps==12
+    # assert pipeline.analyzer.distance==888.0
+    # assert pipeline.analyzer.time=8
+
+def test_new_separated_data():
+    file_path = 'test/data/female-167-70_bagwalk2-100-10.txt'
+    user = User()
+    trial = Trial('foobar1', 100)
+    pipeline = Pipeline(open(file_path).read(), user, trial)
+    #TODO:
+    # assert user==pipeline.user
+    # assert trial==pipeline.trial
+    # assert pipeline.parser
+    # assert pipeline.processor
+    # assert pipeline.analyzer
+    #
+    # assert pipeline.analyzer.steps==12
+    # assert pipeline.analyzer.distance==888.0
+    # assert pipeline.analyzer.time=9

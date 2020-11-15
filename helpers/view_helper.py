@@ -1,19 +1,27 @@
 import time
 
-class ViewHelper
+class ViewHelper:
 
     DISTANCE = { 'cm_per_m': 100, 'cm_per_km': 100000, 'm_per_km': 1000 }
     DECIMAL_PLACES = 2
 
     def format_distance(distance_cm):
-        distance_cm = round(DECIMAL_PLACES, distance_cm)
-        if distance_cm>=DISTANCE['cm_per_km']:
-            return f"{round(distance_cm/DISTANCE['cm_per_km'], DECIMAL_PLACES) km"
-        elif distance_cm>=DISTANCE['cm_per_m']:
-            distance = round(distance_cm/DISTANCE['cm_per_m'], DECIMAL_PLACES)
-            return "1.0 km" if distance==DISTANCE['m_per_km'] else f"{distance} m"
+        distance_cm = round(distance_cm, ViewHelper.DECIMAL_PLACES)
+        if distance_cm>=ViewHelper.DISTANCE['cm_per_km']:
+            return "{d:.{D}f} km".format(
+                    d=round(distance_cm/ViewHelper.DISTANCE['cm_per_km'], ViewHelper.DECIMAL_PLACES),
+                    D=ViewHelper.DECIMAL_PLACES)
+        elif distance_cm>=ViewHelper.DISTANCE['cm_per_m']:
+            distance = round(distance_cm/ViewHelper.DISTANCE['cm_per_m'], ViewHelper.DECIMAL_PLACES)
+            if distance==ViewHelper.DISTANCE['m_per_km']:
+                return f"{1:.{ViewHelper.DECIMAL_PLACES}f} km"
+            else:
+                return "{d:.{D}f} m".format(d=distance, D=ViewHelper.DECIMAL_PLACES)
         else:
-            return "1.0 m" if distance_cm==DISTANCE['cm_per_m'] else f"{distance} cm"
+            if distance_cm==ViewHelper.DISTANCE['cm_per_m']:
+                return f"{1:.{ViewHelper.DECIMAL_PLACES}f} m"
+            else:
+                return "{d:.{D}f} cm".format(d=distance_cm, D=ViewHelper.DECIMAL_PLACES)
 
     def format_time(time_sec):
         return '' if not time_sec else time.strftime('%H hr, %M min, %S sec', time.gmtime(timesec))

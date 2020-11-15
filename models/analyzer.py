@@ -9,6 +9,7 @@ class Analyzer:
         self.data = data
         self.user = user
         self.trial = trial
+        self.steps, self.delta, self.distance, self.time = [None]*4
         self.measure_steps()
         self.measure_delta()
         self.measure_distance()
@@ -27,7 +28,7 @@ class Analyzer:
                 count_steps = False
 
             if dat<0 and self.data[i-1]>=0:
-                cont_steps = True
+                count_steps = True
 
     def measure_delta(self):
         if self.trial.steps:
@@ -38,6 +39,5 @@ class Analyzer:
 
     def measure_time(self):
         if self.trial.rate:
-            #TODO: what's `@data.count` in `@time = @data.count/@trial.rate if @trial.rate`?
             if self.trial.rate:
                 self.time = len(self.data) / self.trial.rate

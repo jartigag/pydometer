@@ -19,16 +19,16 @@ class Filter:
     def low_5_hz(data):
         return Filter.filter(data, Filter.COEFFICIENTS_LOW_5_HZ)
 
-    def low_1_hz(data):
+    def high_1_hz(data):
         return Filter.filter(data, Filter.COEFFICIENTS_HIGH_1_HZ)
 
     def filter(data, coefficients):
         filtered_data = [0,0]
-        for i in range(0,len(data)-1):
+        for i in range(2,len(data)):
             filtered_data.append( coefficients['alpha'][0] *
-                (data[i]   * coefficients['beta'][0] +
-                data[i-1] * coefficients['beta'][1] +
-                data[i-2] * coefficients['beta'][2] -
+                (data[i]           * coefficients['beta'][0] +
+                data[i-1]          * coefficients['beta'][1] +
+                data[i-2]          * coefficients['beta'][2] -
                 filtered_data[i-1] * coefficients['alpha'][1] -
                 filtered_data[i-2] * coefficients['alpha'][2])
             )
