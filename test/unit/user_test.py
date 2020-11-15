@@ -1,32 +1,31 @@
 #TODO: pytest or unittest?
-from .models.user import User
-#FIXME: ModuleNotFoundError: No module named '__main__.models'; '__main__' is not a package
+from pydometer.models.user import User
 
 def test_create():
-    user = User.new('male', 167.5, 80)
+    user = User('male', 167.5, 80)
     #TODO:
     # assert user.gender=='male'
     # assert user.height==167.5
     # assert user.stride==80
 
 def test_create_no_params():
-    user = User.new()
+    user = User()
     #TODO:
     # assert user.gender==None
     # assert user.height==None
     # assert user.stride==74
 
 def test_create_with_gender():
-    #TODO
+    pass #TODO
 
 def test_create_with_height():
-    #TODO
+    pass #TODO
 
 def test_create_with_stride():
-    #TODO
+    pass #TODO
 
 def test_create_with_height_and_gender():
-    #TODO
+    pass #TODO
 
 def test_calculate_stride():
-    #TODO
+    pass #TODO

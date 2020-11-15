@@ -1,5 +1,5 @@
-from user import User
-from trial import Trial
+from pydometer.models.user import User
+from pydometer.models.trial import Trial
 from shutil import copyfile
 
 class Upload:
@@ -25,11 +25,11 @@ class Upload:
         copyfile(temp_file, upload.file_path)
         return upload
 
-    def find(file_path)
+    def find(file_path):
         pass
         #TODO: self.new(file_path)
 
-    def all()
+    def all():
         pass
         #TODO:
         # file_paths = Dir.glob(File.join(UPLOAD_DIRECTORY, "*"))

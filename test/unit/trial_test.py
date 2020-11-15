@@ -1,6 +1,5 @@
 #TODO: pytest or unittest?
-from .models.trial import Trial
-#FIXME: ModuleNotFoundError: No module named '__main__.models'; '__main__' is not a package
+from pydometer.models.trial import Trial
 
 def test_create():
     trial = Trial('walk 1 ', 5, '10')

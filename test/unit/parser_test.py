@@ -1,6 +1,5 @@
 #TODO: pytest or unittest?
-from .models.parser import Parser
-#FIXME: ModuleNotFoundError: No module named '__main__.models'; '__main__' is not a package
+from pydometer.models.parser import Parser
 
 def test_new():
     data = '0.123,-0.123,5;0.456,-0.789,0.111;-0.212,0.001,1;'

@@ -1,6 +1,5 @@
 #TODO: pytest or unittest?
-from .models.filter import Filter
-#FIXME: ModuleNotFoundError: No module named '__main__.models'; '__main__' is not a package
+from pydometer.models.filter import Filter
 
 def test_filter_gravity():
     data = [0.123, 0.456, -0.212]

@@ -1,10 +1,10 @@
 #TODO: pytest or unittest?
-from .models.pipeline import Pipeline
-#FIXME: ModuleNotFoundError: No module named '__main__.models'; '__main__' is not a package
+from pydometer.models.pipeline import Pipeline
+from pydometer.models.user import User
+from pydometer.models.trial import Trial
 
 def test_new_combined_data():
     file_path = 'test/data/female-167-70_bagwalk1-100-10.txt'
-    #TODO: make User,Trial classes available from Pipeline
     user = User()
     trial = Trial('foobar1', 100)
     pipeline = Pipeline(open(file_path).read(), user, trial)

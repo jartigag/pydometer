@@ -1,7 +1,8 @@
 #TODO: pytest or unittest?
-from .models.parser import Parser
-from .models.upload import Upload
-#FIXME: ModuleNotFoundError: No module named '__main__.models'; '__main__' is not a package
+from pydometer.models.parser import Parser
+from pydometer.models.upload import Upload
+from pydometer.models.user import User
+from pydometer.models.trial import Trial
 
 def test_new_no_params():
     pass #TODO
@@ -18,7 +19,7 @@ def test_find():
     #TODO
 
 def test_all():
-    #TODO
+    pass #TODO
 
 def test_generate_file_path():
     file_path = 'public/uploads/female-999.0-90.0_bagwalk1-89-10.txt'

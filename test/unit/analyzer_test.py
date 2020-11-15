@@ -1,8 +1,9 @@
 #TODO: pytest or unittest?
-from .models.parser import Parser
-from .models.processor import Processor
-from .models.analyzer import Analyzer
-#FIXME: ModuleNotFoundError: No module named '__main__.models'; '__main__' is not a package
+from pydometer.models.parser import Parser
+from pydometer.models.processor import Processor
+from pydometer.models.analyzer import Analyzer
+from pydometer.models.user import User
+from pydometer.models.trial import Trial
 
 def test_new():
     analyzer = Analyzer([0, 0], User(), Trial('walk1'))

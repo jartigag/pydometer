@@ -1,6 +1,5 @@
 #TODO: pytest or unittest?
-from .helpers.view_helper import ViewHelper
-#FIXME: ModuleNotFoundError: No module named '__main__.helper'; '__main__' is not a package
+from pydometer.helpers.view_helper import ViewHelper
 
 def test_format_distance_cm():
     pass #TODO

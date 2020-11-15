@@ -8,7 +8,7 @@ class Filter:
         'alpha': [1, -1.80898117793047, 0.827224480562408],
         'beta':  [0.095465967120306, -0.172688631608676, 0.095465967120306]
     }
-    COEFFICIENTS_HIGH_1_HZ = { # Direct form I, Chebyshev II, type = high-pass, Fs = 100,      Fstop = 0.5, Astop = 20, order = 2,
+    COEFFICIENTS_HIGH_1_HZ = { # Direct form I, Chebyshev II, type = high-pass, Fs = 100, Fstop = 0.5, Astop = 20, order = 2,
         'alpha': [1, -1.905384612118461, 0.910092542787947],
         'beta':  [0.953986986993339, -1.907503180919730, 0.953986986993339]
     }

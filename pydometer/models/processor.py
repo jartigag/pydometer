@@ -1,4 +1,4 @@
-from filter import Filter
+from pydometer.models.filter import Filter
 
 class Processor:
 
@@ -8,8 +8,8 @@ class Processor:
         self.__filter()
 
     def __dot_product(self):
-        self.dot_product_data = [x*y for x,y in zip(self.data[0],self.data[1])]
-        # rewritten from:
+        self.dot_product_data = None
+        #TODO: rewrite and add input control from:
         # @dot_product_data = @data.map do |x|
         #   x[0][0] * x[1][0] + x[0][1] * x[1][1] + x[0][2] * x[1][2]
         # end

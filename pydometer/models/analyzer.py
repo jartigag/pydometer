@@ -1,5 +1,5 @@
-from user import User
-from trial import Trial
+from pydometer.models.user import User
+from pydometer.models.trial import Trial
 
 class Analyzer:
 
