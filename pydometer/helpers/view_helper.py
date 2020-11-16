@@ -6,6 +6,7 @@ class ViewHelper:
     DECIMAL_PLACES = 2
 
     def format_distance(distance_cm):
+        if not distance_cm: return None
         distance_cm = round(distance_cm, ViewHelper.DECIMAL_PLACES)
         if distance_cm>=ViewHelper.DISTANCE['cm_per_km']:
             return "{d:.{D}f} km".format(
@@ -24,8 +25,7 @@ class ViewHelper:
                 return "{d:.{D}f} cm".format(d=distance_cm, D=ViewHelper.DECIMAL_PLACES)
 
     def format_time(time_sec):
-        return '' if not time_sec else time.strftime('%H hr, %M min, %S sec', time.gmtime(timesec))
+        return '' if not time_sec else time.strftime('%-H hr, %-M min, %-S sec', time.gmtime(time_sec))
 
     def limit_1000(series):
-        return series[:999]
-        #TODO? original is `series.to_a[0..999]`. `to_a` needed? example: (1..10).to_a
+        return series[:999] if series else []
