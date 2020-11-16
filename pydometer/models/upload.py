@@ -1,10 +1,12 @@
 from pydometer.models.user import User
 from pydometer.models.trial import Trial
 from shutil import copyfile
+from os import listdir
+from os.path import isfile, join
 
 class Upload:
 
-    upload_directory = 'public/uploads'
+    UPLOAD_DIRECTORY = 'public/uploads/'
 
     def __init__(self, file_path=None, user_params=None, trial_params=None):
         if file_path:
@@ -16,28 +18,21 @@ class Upload:
         elif user_params and trial_params:
             self.user = User(**user_params)
             self.trial = Trial(**trial_params)
-            self.file_path = Upload.generate_file_path(user, trial)
+            self.file_path = Upload.generate_file_path(self.user, self.trial)
         else:
             raise ValueError("A file path or user and trial parameters must be provided.")
 
-    def create(self, temp_file, user_params, trial_params):
+    def create(temp_file, user_params, trial_params):
         upload = Upload(user_params=user_params, trial_params=trial_params)
         copyfile(temp_file, upload.file_path)
         return upload
 
     def find(file_path):
-        pass
-        #TODO: self.new(file_path)
+        return Upload(file_path)
 
     def all():
-        pass
-        #TODO:
-        # file_paths = Dir.glob(File.join(UPLOAD_DIRECTORY, "*"))
-        # file_paths.map { |file_path| self.new(file_path) }
+        file_paths = [f for f in listdir(Upload.UPLOAD_DIRECTORY) if isfile(join(Upload.UPLOAD_DIRECTORY, f))]
+        return [Upload(file_path) for file_path in file_paths]
 
-    def generate_file_path(self, user, trial):
-        pass
-        #TODO:
-        # UPLOAD_DIRECTORY +
-        # "#{user.gender}-#{user.height}-#{user.stride}_" +
-        # "#{trial.name}-#{trial.rate}-#{trial.steps}.txt"
+    def generate_file_path(user, trial):
+        return f"{Upload.UPLOAD_DIRECTORY}{user.gender}-{user.height}-{user.stride}_{trial.name}-{trial.rate}-{trial.steps}.txt"
