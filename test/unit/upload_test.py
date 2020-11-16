@@ -1,4 +1,5 @@
-#TODO: pytest or unittest?
+import pytest
+
 from pydometer.models.parser import Parser
 from pydometer.models.upload import Upload
 from pydometer.models.user import User

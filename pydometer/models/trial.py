@@ -1,6 +1,6 @@
 class Trial:
     def __init__(self, name, rate=None, steps=None):
-        self.name = str(name).strip().replace(' ','_')
+        self.name = str(name).replace(' ','')
         self.rate = int(rate) if rate else 0
         self.steps = int(steps) if steps else 0
 

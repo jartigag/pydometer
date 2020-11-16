@@ -1,4 +1,5 @@
-#TODO: pytest or unittest?
+import pytest
+
 from pydometer.helpers.view_helper import ViewHelper
 
 def test_format_distance_cm():

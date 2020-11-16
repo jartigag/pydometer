@@ -8,12 +8,8 @@ class Processor:
         self.__filter()
 
     def __dot_product(self):
-        self.dot_product_data = None
-        #TODO: rewrite and add input control from:
-        # @dot_product_data = @data.map do |x|
-        #   x[0][0] * x[1][0] + x[0][1] * x[1][1] + x[0][2] * x[1][2]
-        # end
+        self.dot_product_data = [ d[0][0]*d[1][0] + d[0][1]*d[1][1] + d[0][2]*d[1][2] if any(d) else 0 for d in self.data]
 
     def __filter(self):
         self.filtered_data = Filter.low_5_hz(self.dot_product_data)
-        self.filtered_data = Filter.low_1_hz(self.filtered_data)
+        self.filtered_data = Filter.high_1_hz(self.filtered_data)

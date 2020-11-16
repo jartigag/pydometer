@@ -12,5 +12,5 @@ class Parser:
            OR
            [ [ [x1u, y1u, z1u], [x1g, y1g, z1g] ], ...,
              [ [xnu, ynu, znu], [xng, yng, zng] ] ]"""
-        #TODO put it clearer:
+        #TODO put it clearer and complete (raise exception if bad input, handle all cases):
         self.parsed_data = [[[float(coord) for coord in coords.split(',') if coords] for coords in datapoint.split('|')] for datapoint in self.data.split(';')]
