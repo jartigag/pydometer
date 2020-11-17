@@ -25,7 +25,7 @@ class ViewHelper:
                 return "{d:.{D}f} cm".format(d=distance_cm, D=ViewHelper.DECIMAL_PLACES)
 
     def format_time(time_sec):
-        return '' if not time_sec else time.strftime('%-H hr, %-M min, %-S sec', time.gmtime(time_sec))
+        return '' if not time_sec else time.strftime('%-H hr, %-M min, %-S sec', time.gmtime(round(time_sec)))
 
     def limit_1000(series):
         return series[:999] if series else []
