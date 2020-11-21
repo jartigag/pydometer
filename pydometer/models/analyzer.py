@@ -40,4 +40,4 @@ class Analyzer:
     def measure_time(self):
         if self.trial.rate:
             if self.trial.rate:
-                self.time = (len(self.data)-1) / self.trial.rate
+                self.time = len(self.data)/self.trial.rate
