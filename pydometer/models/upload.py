@@ -31,7 +31,7 @@ class Upload:
         return Upload(file_path)
 
     def all():
-        file_paths = [f for f in listdir(Upload.UPLOAD_DIRECTORY) if isfile(join(Upload.UPLOAD_DIRECTORY, f))]
+        file_paths = [join(Upload.UPLOAD_DIRECTORY, f) for f in listdir(Upload.UPLOAD_DIRECTORY) if isfile(join(Upload.UPLOAD_DIRECTORY, f))]
         return [Upload(file_path) for file_path in file_paths]
 
     def generate_file_path(user, trial):
