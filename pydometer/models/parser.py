@@ -8,7 +8,10 @@ class Parser:
     def __parse(self):
         #TODO: remove this workaround
         import os, ast
-        self.parsed_data = ast.literal_eval(os.popen(f"ruby pydometer/models/parser.rb '{self.data}'").read())
+        with open('data.tmp', 'w') as f:
+            f.write(self.data)
+        self.parsed_data = ast.literal_eval(os.popen(f"ruby pydometer/models/parser.rb data.tmp").read())
+        os.system("rm data.tmp")
 '''
     def __parse(self):
         """Extract numerical data into the format:

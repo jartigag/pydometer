@@ -51,5 +51,5 @@ class Parser
 
 end
 
-parser = Parser.run(ARGV[0])
+parser = Parser.run(File.read(ARGV[0]))
 p parser.parsed_data
