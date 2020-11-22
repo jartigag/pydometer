@@ -4,9 +4,9 @@ from flask import Flask, request, render_template
 from gevent.pywsgi import WSGIServer
 import logging
 
-from pydometer.models.upload import Upload
-from pydometer.models.pipeline import Pipeline
-from pydometer.helpers.view_helper import ViewHelper
+from models.upload import Upload
+from models.pipeline import Pipeline
+from helpers.view_helper import ViewHelper
 
 app = Flask(__name__)
 app.add_template_global(Upload, 'Upload')

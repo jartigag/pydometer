@@ -1,6 +1,6 @@
 import pytest
 
-from pydometer.helpers.view_helper import ViewHelper
+from helpers.view_helper import ViewHelper
 
 def test_format_distance():
     assert  '0.01 cm'==ViewHelper.format_distance(0.01)

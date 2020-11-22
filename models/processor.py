@@ -1,4 +1,4 @@
-from pydometer.models.filter import Filter
+from models.filter import Filter
 
 class Processor:
 

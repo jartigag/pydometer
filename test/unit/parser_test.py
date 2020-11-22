@@ -1,6 +1,6 @@
 import pytest
 
-from pydometer.models.parser import Parser
+from models.parser import Parser
 
 def test_new():
     pass #TODO

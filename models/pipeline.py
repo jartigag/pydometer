@@ -1,6 +1,6 @@
-from pydometer.models.parser import Parser
-from pydometer.models.processor import Processor
-from pydometer.models.analyzer import Analyzer
+from models.parser import Parser
+from models.processor import Processor
+from models.analyzer import Analyzer
 
 class Pipeline:
 

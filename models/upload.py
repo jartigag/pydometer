@@ -1,5 +1,5 @@
-from pydometer.models.user import User
-from pydometer.models.trial import Trial
+from models.user import User
+from models.trial import Trial
 from shutil import copyfile
 from os import listdir
 from os.path import isfile, join

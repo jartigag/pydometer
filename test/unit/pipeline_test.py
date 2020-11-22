@@ -1,8 +1,8 @@
 import pytest
 
-from pydometer.models.pipeline import Pipeline
-from pydometer.models.user import User
-from pydometer.models.trial import Trial
+from models.pipeline import Pipeline
+from models.user import User
+from models.trial import Trial
 
 def test_new_combined_data():
     file_path = 'test/data/female-167-70_bagwalk1-100-10.txt'

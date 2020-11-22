@@ -1,6 +1,6 @@
 import pytest
 
-from pydometer.models.trial import Trial
+from models.trial import Trial
 
 def test_create():
     trial = Trial('walk 1 ', 5, '10')

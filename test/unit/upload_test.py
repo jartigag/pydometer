@@ -1,10 +1,10 @@
 import pytest
 from os import remove
 
-from pydometer.models.parser import Parser
-from pydometer.models.upload import Upload
-from pydometer.models.user import User
-from pydometer.models.trial import Trial
+from models.parser import Parser
+from models.upload import Upload
+from models.user import User
+from models.trial import Trial
 
 def test_new_no_params():
     with pytest.raises(ValueError) as e:

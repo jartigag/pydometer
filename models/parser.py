@@ -1,4 +1,4 @@
-from pydometer.models.filter import Filter
+from models.filter import Filter
 class Parser:
 
     def __init__(self, data):
@@ -10,7 +10,7 @@ class Parser:
         import os, ast
         with open('data.tmp', 'w') as f:
             f.write(self.data)
-        self.parsed_data = ast.literal_eval(os.popen(f"ruby pydometer/models/parser.rb data.tmp").read())
+        self.parsed_data = ast.literal_eval(os.popen(f"ruby models/parser.rb data.tmp").read())
         os.system("rm data.tmp")
 '''
     def __parse(self):

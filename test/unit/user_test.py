@@ -1,6 +1,6 @@
 import pytest
 
-from pydometer.models.user import User
+from models.user import User
 
 def test_create():
     user = User('male', 167.5, 80)

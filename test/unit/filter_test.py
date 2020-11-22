@@ -1,6 +1,6 @@
 import pytest
 
-from pydometer.models.filter import Filter
+from models.filter import Filter
 
 def test_filter_gravity():
     data = [0.123, 0.456, -0.212]
