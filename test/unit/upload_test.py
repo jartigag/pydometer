@@ -13,7 +13,7 @@ def test_new_no_params():
 
 def test_create():
     temp_file = 'test/data/upload-1.txt'
-    file_path = 'public/uploads/female-999.0-90.0_run1-89-10.txt'
+    file_path = 'public/uploads/female-999-90_run1-89-10.txt'
     user_params = { 'gender':'female', 'height':'999', 'stride':'90' }
     trial_params = { 'name':'run1', 'rate':'89', 'steps':'10' }
 
@@ -30,7 +30,7 @@ def test_create():
     remove(file_path)
 
 def test_find():
-    file_path = 'public/uploads/female-168.0-70.0_walk1-100-100.txt'
+    file_path = 'public/uploads/female-168-70_walk1-100-100.txt'
     upload = Upload.find(file_path)
 
     assert upload.file_path==file_path
@@ -50,7 +50,7 @@ def test_all():
     assert map(lambda x: x.isinstance(Upload), uploads)
 
 def test_generate_file_path():
-    file_path = 'public/uploads/female-999.0-90.0_bagwalk1-89-10.txt'
+    file_path = 'public/uploads/female-999-90_bagwalk1-89-10.txt'
     user = User('female', '999', '90')
     trial = Trial('bagwalk1', '89', '10')
 

@@ -10,11 +10,19 @@ class User:
         except ValueError:
             raise ValueError("Invalid gender")
         try:
-            self.height = float(str(height)) if height or height==0 else None
+            self.height = float(height) if height or height==0 else None
+            if int(self.height)==self.height:
+                self.height = int(self.height)
+        except TypeError:
+            pass
         except ValueError:
             raise ValueError("Invalid height")
         try:
-            self.stride = float(str(stride)) if stride or stride==0 else None
+            self.stride = float(stride) if stride or stride==0 else None
+            if int(self.stride)==self.stride:
+                self.stride = int(self.stride)
+        except TypeError:
+            pass
         except ValueError:
             raise ValueError("Invalid stride")
 
