@@ -7,6 +7,10 @@ from pydometer.models.pipeline import Pipeline
 
 app = Flask(__name__)
 
+@app.route('/')
+def get_init():
+    return ''
+
 @app.route('/uploads', methods=['GET'])
 def get_uploads():
     #TODO: @error = "A #{params[:error]} error has occurred." if params[:error]
