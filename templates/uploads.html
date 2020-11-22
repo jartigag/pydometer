@@ -2,7 +2,6 @@
 
 <html>
   <!--#TODO: div class="error"><%= @error %></div-->
-  <!--%= erb table class="summary", locals: { pipelines: @pipelines, detail_hidden: true } %-->
   {% with pipelines=pipelines, detail_hidden=True %}
   {% include 'summary.html' %}
   {% endwith %}
