@@ -20,11 +20,11 @@
       <!-- if detail_hidden -->
       {% if detail_hidden %}
         <td>
-          <!--#TODO: a href=<%= "upload/" + Upload.generate_file_path(pipeline.user, pipeline.trial)   %>>Detail</a-->
+          <a href={{"/upload/" + Upload.generate_file_path(pipeline.user, pipeline.trial)}}>Detail</a>
         </td>
       {% else %}
-        <td>{{ format_distance(pipeline.analyzer.distance) }}</td>
-        <td>{{ format_time(pipeline.analyzer.time) }}</td>
+        <td>{{ ViewHelper.format_distance(pipeline.analyzer.distance) }}</td>
+        <td>{{ ViewHelper.format_time(pipeline.analyzer.time) }}</td>
       {% endif %}
     </tr>
   {% endfor %}

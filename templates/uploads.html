@@ -4,7 +4,7 @@
   <!--#TODO: div class="error"><%= @error %></div-->
   <!--%= erb table class="summary", locals: { pipelines: @pipelines, detail_hidden: true } %-->
   {% with pipelines=pipelines, detail_hidden=True %}
-  {% include 'views/summary.html' %}
+  {% include 'summary.html' %}
   {% endwith %}
   <form method="post" action="/create" enctype="multipart/form-data">
     <h3 class="upload-header">Trial Info</h3>
