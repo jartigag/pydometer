@@ -1,6 +1,12 @@
-<link href={{ url_for('static', filename='styles.css') }} rel="stylesheet" type="text/css" />
-
+<!DOCTYPE html>
 <html>
+<head>
+  <title>pydometer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <link href={{ url_for('static', filename='styles.css') }} rel="stylesheet" type="text/css" />
+<head>
+<body>
   <!--#TODO: div class="error"><%= @error %></div-->
   {% with pipelines=pipelines, detail_hidden=True %}
   {% include 'summary.html' %}
@@ -21,4 +27,5 @@
     <input class="params" type="number" step="0.1" name="user[stride]" placeholder="Stride   (cm)">
     <div class="controls"><input type="submit" value="submit"></div>
   </form>
+</body>
 </html>

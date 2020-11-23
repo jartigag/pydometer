@@ -1,7 +1,7 @@
 table.summary {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   width: 50%;
-  display: inline;
+  display: inline-table;
   margin: 0% 10%;
 }
 
@@ -25,12 +25,12 @@ h3.upload-header {
 
 input { width: 200px; }
 
-a.nav { 
+a.nav {
   float: right;
   margin: 20px 150px 0 0;
 }
 
-.error { 
+.error {
   text-align: center;
   color: red;
 }
