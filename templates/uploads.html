@@ -7,7 +7,7 @@
   <link href={{ url_for('static', filename='styles.css') }} rel="stylesheet" type="text/css" />
 <head>
 <body>
-  <!--#TODO: div class="error"><%= @error %></div-->
+  <div class="error">{{ error }}</div>
   {% with pipelines=pipelines, detail_hidden=True %}
   {% include 'summary.html' %}
   {% endwith %}

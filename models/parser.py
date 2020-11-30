@@ -23,13 +23,13 @@ class Parser:
 
         # remove empty lists:
         for i,datapoint in enumerate(self.parsed_data):
-            if not datapoint[0]:
+            if not datapoint[0] or datapoint[0]==[0.0]:
                 del self.parsed_data[i]
 
         for datapoint in self.parsed_data:
             for coords in datapoint:
-                    if coords and len(coords)!=3:
-                        raise ValueError('Bad Input. Ensure data is properly formatted.')
+                if coords and len(coords)!=3:
+                    raise ValueError('Bad Input. Ensure data is properly formatted.')
 
         if len(self.parsed_data[0])==1:
         # so this data is in the combined format

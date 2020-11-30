@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, redirect
 from gevent.pywsgi import WSGIServer
 import logging
 
@@ -14,9 +14,10 @@ app.add_template_global(ViewHelper, 'ViewHelper')
 
 @app.route('/uploads', methods=['GET'])
 def get_uploads():
-    #TODO: @error = "A #{params[:error]} error has occurred." if params[:error]
+    error_description = f": {request.args.get('errdescr')}." if request.args.get('errdescr') else "."
+    error = f"A {request.args.get('error')} error has occurred{error_description}" if request.args.get('error') else ""
     pipelines = [Pipeline(open(upload.file_path).read(), upload.user, upload.trial) for upload in Upload.all()]
-    return render_template('uploads.html', pipelines=pipelines)
+    return render_template('uploads.html', pipelines=pipelines, error=error)
 
 @app.route('/upload/<path:file_path>', methods=['GET'])
 def get_upload(file_path):
@@ -26,7 +27,19 @@ def get_upload(file_path):
 
 @app.route('/create', methods=['POST'])
 def create():
-    pass #TODO
+    try:
+        form = request.form.to_dict()
+        #TODO: prevent public/uploads/None-None-74.0_x-None-None.txt from happening
+        params = {
+            'trial': {'name': form['trial[name]'], 'rate': form['trial[rate]'], 'steps': form['trial[steps]']},
+            'user': {'gender': form['user[gender]'], 'height': form['user[height]'], 'stride': form['user[stride]']}
+        }
+        tempfile = request.files['data'].filename
+        Upload.create(tempfile, params['user'], params['trial'])
+
+        return redirect('/uploads')
+    except Exception as e:
+        return redirect(f'/uploads?error=creation&errdescr={e}')
 
 if __name__ == '__main__':
     logging.basicConfig(level=logging.INFO)
