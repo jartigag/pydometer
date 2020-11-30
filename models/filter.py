@@ -23,6 +23,12 @@ class Filter:
         return Filter.filter(data, Filter.COEFFICIENTS_HIGH_1_HZ)
 
     def filter(data, coefficients):
+        """Implementation of IIR (Infinite Impulse Response) filter:
+        output_i = alpha_0 * (input_i*beta_0
+                            + input_{i-1}*beta_1 + input_{i-2}*beta_2
+                            + output{i-1}*alpha_1 + output_{i-2}*alpha_2)
+        """
+
         filtered_data = [0,0]
         for i in range(2,len(data)):
             filtered_data.append( coefficients['alpha'][0] *

@@ -17,17 +17,20 @@ class Analyzer:
 
     def measure_steps(self):
         self.steps = 0
-        count_steps = True
+        count_steps = True # this boolean is used to implement hysteresis
 
         for i,dat in enumerate(self.data):
 
             if dat>=Analyzer.THRESHOLD and self.data[i-1]<Analyzer.THRESHOLD:
-                if not count_steps:
+            # with this threshold in amplitude, short peaks are ignored
+                if count_steps==False:
                     continue
+                    # because we've already counted a step for this peak
                 self.steps+=1
                 count_steps = False
 
             if dat<0 and self.data[i-1]>=0:
+            # so the x-axis has been crossed in the negative direction
                 count_steps = True
 
     def measure_delta(self):
