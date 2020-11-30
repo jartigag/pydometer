@@ -3,16 +3,6 @@ import pytest
 from models.parser import Parser
 from models.processor import Processor
 
-def test_new():
-    data = '0.123,-0.123,5;0.456,-0.789,0.111;-0.212,0.001,1;'
-    parser = Parser(data)
-    processor = Processor(parser.parsed_data)
-
-    assert processor.dot_product_data==None
-    assert processor.filtered_data==None
-
-# --- Creation Tests ---
-
 def test_create_combined_data():
     data = '0.123,-0.123,5;0.456,-0.789,0.111;-0.212,0.001,1;'
     parser = Parser(data)

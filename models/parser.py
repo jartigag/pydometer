@@ -5,17 +5,6 @@ class Parser:
         self.data = data
         self.__parse()
 
-    """
-    def __parse(self):
-        #TODO: remove this workaround
-        import os, ast
-        with open('data.tmp', 'w') as f:
-            f.write(self.data)
-        self.parsed_data = ast.literal_eval(os.popen(f"ruby models/parser.rb data.tmp").read())
-        os.system("rm data.tmp")
-    """
-
-
     def __parse(self):
         """Extract numerical data into the format:
            [ [ [x1t, y1t, z1t] ], ..., [ [xnt, ynt, znt] ] ]
