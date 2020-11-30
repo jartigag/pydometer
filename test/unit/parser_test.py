@@ -25,7 +25,7 @@ def test_create_separated_data():
     parser = Parser(data)
 
     assert parser.parsed_data==[[[0.028, -0.072, 5.0], [0.129, -0.945, -5.0]],
-      [[0, -0.07, 0.06],   [0.123, -0.947, 5.0]],
+      [[0.0, -0.07, 0.06],   [0.123, -0.947, 5.0]],
       [[0.2, -1.0, 2.0], [0.1, -0.9, 3.0]]]
 
 def test_create_string_values_parses_to_0s():
