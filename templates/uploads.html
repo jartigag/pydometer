@@ -5,6 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="utf-8">
   <link href={{ url_for('static', filename='styles.css') }} rel="stylesheet" type="text/css" />
+  <script src={{ url_for('static', filename="/jquery.min.js") }}></script>
+  <script>
+  $(document).ready(function(){
+    $('form input').change(function () {
+      filename = this.files[0].name; //example: female-167-70_bagwalk1-100-10.txt
+      $('form p').html('selected file:<br/>' + filename);
+      if (filename.split('_')[0].split('-').length==3) {
+          user_info = filename.split('_')[0].split('-');
+          $('form select[name="user[gender]"]').val(user_info[0]);
+          $('form input[name="user[height]"]').val(user_info[1]);
+          $('form input[name="user[stride]"]').val(user_info[2]);
+      };
+      if (filename.split('_')[1].split('-').length==3) {
+          trial_info = filename.split('_')[1].split('-');
+          $('form input[name="trial[name]"]').val(trial_info[0]);
+          $('form input[name="trial[rate]"]').val(trial_info[1]);
+          $('form input[name="trial[steps]"]').val(trial_info[2].replace(/\.[^/.]+$/, ""));
+          //                                     remove extension (.csv) ^^^
+      };
+    });
+  });
+  </script>
 <head>
 <body>
   <div class="error">{{ error }}</div>
@@ -12,8 +34,11 @@
   {% include 'summary.html' %}
   {% endwith %}
   <form method="post" action="/create" enctype="multipart/form-data">
+    <div class="dragfile">
+      <input name="file" type="file">
+      <p>Drag your file here or click in this area</p>
+    </div>
     <h3 class="upload-header">Trial Info</h3>
-    <input name="data" type="file">
     <input name="trial[name]" class="params" placeholder="Name">
     <input name="trial[rate]" type="number" class="params" placeholder="Sampling Rate">
     <input name="trial[steps]" type="number" class="params" placeholder="Actual Step Count">
@@ -25,7 +50,7 @@
     </select>
     <input class="params" type="number" step="0.1" name="user[height]" placeholder="Height   (cm)">
     <input class="params" type="number" step="0.1" name="user[stride]" placeholder="Stride   (cm)">
-    <div class="controls"><input type="submit" value="submit"></div>
+    <button type="submit">Submit</button>
   </form>
 </body>
 </html>
