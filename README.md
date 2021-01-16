@@ -4,4 +4,20 @@ I'm porting [this app made in Ruby](https://github.com/aosabook/500lines/tree/ma
 
 The original code belongs to ["500 Lines or Less"](https://aosabook.org/en/index.html#500lines), book distributed under the [Creative Commons Attribution license](http://creativecommons.org/licenses/by/3.0/). This project is fully explained in the chapter ["A Pedometer in the Real World"](https://aosabook.org/en/500L/a-pedometer-in-the-real-world.html) (Copyright (c) [Dessy Daskalov](https://twitter.com/dess_e)). It's worth reading.
 
-![](app.png)
+![](imgs/app.png)
+
+## Real examples
+
+I just used the accelerator in my phone with [this app](https://phyphox.org/) and exported the data to a plain CSV.
+
+#### Before running:
+
+![](imgs/app-before_running.png)
+
+#### Running on grass:
+
+![](imgs/app-run_going.png)
+
+#### Running back following the same path, more or less:
+
+![](imgs/app-run_coming.png)
