@@ -12,6 +12,10 @@ app = Flask(__name__)
 app.add_template_global(Upload, 'Upload')
 app.add_template_global(ViewHelper, 'ViewHelper')
 
+app.config['MAX_CONTENT_LENGTH'] = 1024 * 1024 # max. file size = 1MB
+#app.config['UPLOAD_EXTENSIONS'] = ['.csv', '.txt']
+app.config['UPLOAD_PATH'] = Upload.UPLOAD_DIRECTORY
+
 @app.route('/uploads', methods=['GET'])
 def get_uploads():
     error_description = f": {request.args.get('errdescr')}." if request.args.get('errdescr') else "."
@@ -35,7 +39,11 @@ def create():
             'user': {'gender': form['user[gender]'], 'height': form['user[height]'], 'stride': form['user[stride]']}
         }
         tempfile = request.files['data'].filename
-        Upload.create(tempfile, params['user'], params['trial'])
+        #Upload.create(tempfile, params['user'], params['trial'])
+        datafile = request.files['file']
+        if datafile.filename:
+            upload = Upload.create(tempfile, params['user'], params['trial'])
+            datafile.save(upload.file_path)
 
         return redirect('/uploads')
     except Exception as e:
@@ -44,6 +52,6 @@ def create():
 if __name__ == '__main__':
     logging.basicConfig(level=logging.INFO)
     LISTEN = ('localhost', 8000)
-    http_server = WSGIServer(LISTEN, app)
+    httpd = WSGIServer(LISTEN, app)
     print(f"Serving on http://{LISTEN[0]}:{LISTEN[1]}/uploads")
-    http_server.serve_forever()
+    httpd.serve_forever()

@@ -17,5 +17,5 @@ def test_create():
       'user' : { 'gender': 'female', 'height': '157', 'stride': '90'}
   })
 
-  assert response==302
+  assert response.status_code==302
   remove('public/uploads/female-157.0-90.0_foo-100-10.txt')
